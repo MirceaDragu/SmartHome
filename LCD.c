@@ -4,6 +4,9 @@
 #include <stdint.h>
 #include "LCD.h"
 
+#define RS PA0
+#define ENABLE PA1
+
 void scrie_caracter(volatile uint8_t *portrse, volatile uint8_t *portout, char c, int rs, int enable)
 {
 	*portrse |= (1<<rs) | (1<<enable);
@@ -73,4 +76,25 @@ void initLCD(volatile uint8_t *portrse, volatile uint8_t *portout, int rs, int e
 	_delay_ms(1);
 	*portrse &= ~(1<<enable);
 	
+}
+
+void clearL1()
+{
+	unsigned int i;
+	for(i=0x80; i<=0x8F; i++)
+	{
+		alegepoz(&PORTA,&PORTC,i,RS,ENABLE);
+		scrie_caracter(&PORTA,&PORTC,'\0',RS,ENABLE);
+	}
+}
+
+void clearL2()
+{
+	unsigned int i;
+	for(i=0xC0; i<=0xCF; i++)
+	{
+			alegepoz(&PORTA,&PORTC,i,RS,ENABLE);
+			scrie_caracter(&PORTA,&PORTC,'\0',RS,ENABLE);
+		
+	}
 }

@@ -13,6 +13,8 @@ void scrie_caracter(volatile uint8_t *portrse, volatile uint8_t *portout, char c
 void alegepoz(volatile uint8_t *portrse, volatile uint8_t *portout, unsigned int poz, int rs, int enable);
 void scrie_text(volatile uint8_t *portrse, volatile uint8_t *portout, char *text, int rs, int enable);
 void initLCD(volatile uint8_t *portrse, volatile uint8_t *portout, int rs, int enable);
+void clearL1();
+void clearL2();
 
 
 

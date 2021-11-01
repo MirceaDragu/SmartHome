@@ -11,8 +11,7 @@
 
 void initADC();
 uint16_t readADC(uint8_t pin);
-void WriteTemperature(uint8_t size, volatile uint8_t *a);
-
+void WriteTemperature(int size, int *a);
 
 
 #endif /* ADC_H_ */
